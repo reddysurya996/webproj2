@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Claim</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="/Applications/XAMPP/xamppfiles/htdocs/images/vit.png" class="logo-img">
+<span>CampusTrace</span>
+</div>
+
+<select onchange="navigate(this.value)" class="dropdown" id="nav">
+<option value="index.html">Home</option>
+<option value="report.html">Report Item</option>
+<option value="items.html">Search Items</option>
+<option value="claim.html">Claim Item</option>
+</select>
+</header>
+
+<div class="card-container">
+<div class="form-card">
+
+<h2>Claim Lost Item</h2>
+
+<input type="text" id="email" placeholder="VIT Email">
+<select id="lostItems"></select>
+<textarea id="msg"></textarea>
+
+<button onclick="sendMail()">Send</button>
+
+</div>
+</div>
+
+<footer>
+<p>VIT Email System</p>
+</footer>
+
+<script>
+function navigate(page){
+if(page) window.location.href = page;
+}
+
+let current = window.location.pathname.split("/").pop();
+let nav = document.getElementById("nav");
+
+if(nav){
+for(let i=0;i<nav.options.length;i++){
+if(nav.options[i].value === current){
+nav.selectedIndex = i;
+}
+}
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VIT CampusTrace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="/Applications/XAMPP/xamppfiles/htdocs/images/vit.png" class="logo-img">
+<span>CampusTrace</span>
+</div>
+
+<select onchange="navigate(this.value)" class="dropdown" id="nav">
+<option value="index.html">Home</option>
+<option value="report.html">Report Item</option>
+<option value="items.html">Search Items</option>
+<option value="claim.html">Claim Item</option>
+</select>
+</header>
+
+<div class="home">
+<h1>VIT Lost & Found Portal</h1>
+<p>Helping students recover lost items quickly and securely</p>
+</div>
+
+<div class="features">
+<div class="feature-card">
+<h3>Report Items</h3>
+<p>Easily report lost or found items</p>
+</div>
+<div class="feature-card">
+<h3>Search Items</h3>
+<p>Find items using smart search</p>
+</div>
+<div class="feature-card">
+<h3>Secure Claims</h3>
+<p>Only VIT emails allowed</p>
+</div>
+</div>
+
+<div class="stats">
+<p>Total Items: <span id="total"></span></p>
+<p>Lost Items: <span id="lost"></span></p>
+<p>Found Items: <span id="found"></span></p>
+</div>
+
+<div class="quick">
+<a href="report.html">Report Now</a>
+<a href="items.html">Search Now</a>
+</div>
+
+<footer>
+<p>© VIT Vellore</p>
+</footer>
+
+<script>
+function navigate(page){
+if(page) window.location.href = page;
+}
+
+let current = window.location.pathname.split("/").pop();
+let nav = document.getElementById("nav");
+
+if(nav){
+for(let i=0;i<nav.options.length;i++){
+if(nav.options[i].value === current){
+nav.selectedIndex = i;
+}
+}
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
